@@ -8,7 +8,7 @@ Enterprises and all non-trivial software projects must have the ability to ship 
 
 Software design and maintenance is an iterative process which can be thought of as **dynamically stable.** Interaction with users, with competitors in a marketplace, and with new engineering ideas, along with the changes these inspire, are necessary for a successful system and a successful company.
 
-Stagnant software is increasingly less "proven" and more "untested," and both engineering and cultural bit rot appear in large systems. We must release new verisons of our software.
+Stagnant software is increasingly less "proven" and more "untested," and both engineering and cultural bit rot appear in large systems. We must release new versions of our software.
 
 ## Releasing software is a normal operation
 
@@ -18,7 +18,7 @@ We must avoid creating systems that require heroic intervention, context, or ins
 
 ## Reduce cycle time
 
-The best way to improve flexibility and stability is to reduce the overall time it takes to ship software changes into production. For example: reducing compile time, unit test times through efficiency and parallelization, having the ability to point production to experimental or limited host pools in order to get user interactivity. These can be done in ways where the risk is not avoided, but managed.
+The best way to improve flexibility and stability is to reduce the overall time it takes to ship software changes into production. For example: reducing compile time, unit test times through efficiency and parallelization, having the ability to point production to experimental or limited host pools in order to record real user traffic. These can be done in ways where the risk is not avoided, but managed.
 
 ## Human context is precious and human attention is limited
 
@@ -38,7 +38,7 @@ Any unexpected variance in production is a bug. A marked change in memory usage,
 
 The first instinct should be to revert code or to deactivate a feature flag or experiment -- to rollback the code to as close as possible to a known good state.
 
-If a rollback is impractical, triage should be focused on getting estimates as to the severity of the incident, how many users are effected, what the financial or legal implications are, and an estimate from engineers as to the difficulty, risk, and time required to repair the bug with another deployment.
+If a rollback is impractical, triage should be focused on getting estimates as to the severity of the incident, how many users are affected, what the financial or legal implications are, and an estimate from engineers as to the difficulty, risk, and time required to repair the bug with another deployment.
 
 Note that more insidious regressions may not be noticed for days or weeks in large systems, so this becomes a question of overall resource allocation -- does this bug need to be fixed now?
 
@@ -60,15 +60,15 @@ We should avoid:
 - large changelists and pull requests which have not segmented their features properly
 - deploying code or systems which cannot be reversed or deactivated via flags
 - "all or nothing" deployments which have not been designed to be deployed in segments
-- software that depends on close monitoring by designers while it is in production (for example, all variances produce 500-class errors or terminations)
+- software that depends on close monitoring by developers while it is in production (for example, all variances produce 500-class errors or terminations)
 
 Often these are issues with overall system and software design, and naïve assumptions about the stability, predictability, or observability of software systems.
 
-## Chestnuts which don't work
+## Common misconceptions
 
-Manual approval of changes by staff, particularly higher level management, which are not involved in the creation or daily maintenance of software systems, does not increase release stability. Everyone has an opinion, yet few are responsible.
+Manual approval of changes by staff, particularly higher level management, who are not involved in the creation or daily maintenance of software systems, does not increase release stability. Everyone has an opinion, yet few are responsible.
 
-There are no "off-hours" in globally available, popular software systems. It is better to deploy during your engineering team's peak availability and focus, and not be concerned with the amount of users. The interaction of large numbers of users will instead make emergent errors more likely and visible than not. If you need to block deployments, do so for an entire team or an entire company based on a necessary change of priorities (like an SLO-mandated "code red") or expected absences or lack of focus (company events, holidays, or weekend mornings.)
+There are no "off-hours" in globally available, popular software systems. It is better to deploy during your engineering team's peak availability and focus, and not be concerned with the amount of users. The interaction of large numbers of users will instead make emergent errors more visible. If you need to block deployments, do so for an entire team or an entire company based on a necessary change of priorities (like an SLO-mandated "code red") or expected absences or lack of focus (company events, holidays, or weekend mornings.)
 
 ## Final
 
